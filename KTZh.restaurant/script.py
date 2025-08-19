@@ -1,4 +1,8 @@
 from moviepy import VideoFileClip, CompositeVideoClip, ColorClip
+import time
+
+# Start timer
+start_time = time.time()
 
 # Load the original video
 clip = VideoFileClip("input.mp4")
@@ -28,3 +32,7 @@ final = CompositeVideoClip([background] + clips)
 # Export the final video
 final.write_videofile("output.mp4", fps=24)
 
+# Calculate and print processing time
+end_time = time.time()
+processing_time = end_time - start_time
+print(f"Processing completed in {processing_time:.2f} seconds")
